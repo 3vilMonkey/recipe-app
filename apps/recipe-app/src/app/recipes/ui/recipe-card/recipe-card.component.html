@@ -1,0 +1,14 @@
+<div
+  class="p-4 rounded-md shadow-md transition hover:shadow-lg"
+  [routerLink]="['/recipe/', recipe().id]"
+>
+  <img
+    [src]="recipe().imageUrl"
+    [alt]="recipe().imageAlt"
+    class="w-full h-40 object-cover rounded-md"
+  />
+  <h3 class="mt-2 text-lg font-bold">{{ recipe().name }}</h3>
+  <p class="text-sm">
+    {{ recipe().description }}
+  </p>
+</div>

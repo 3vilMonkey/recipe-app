@@ -1,0 +1,39 @@
+@if (recipe$ | async; as recipe) {
+  <div class="min-h-screen p-4">
+    <header class="p-4">
+      <button class="text-blue-500" routerLink="/recipes">
+        &larr; Back to Recipes
+      </button>
+    </header>
+
+    <main class="flex flex-row gap-4">
+      <img
+        [src]="recipe?.imageUrl"
+        [alt]="recipe?.imageAlt"
+        class="w-3/12 rounded-md shadow-md"
+      />
+      <div class="flex-1">
+        <h1 class="text-2xl font-bold">{{ recipe?.name }}</h1>
+        <p class="text-sm">
+          {{ recipe?.description }}
+        </p>
+
+        <section class="mt-6">
+          <h2 class="text-xl font-bold">Ingredients</h2>
+          <ul class="list-disc list-inside">
+            <li *ngFor="let ingredient of recipe?.ingredients">
+              {{ ingredient.quantity }} - {{ ingredient.name }}
+            </li>
+          </ul>
+        </section>
+
+        <section class="mt-6">
+          <h2 class="text-xl font-bold">Instructions</h2>
+          <ol class="list-decimal list-inside">
+            <li *ngFor="let step of recipe?.steps">{{ step }}</li>
+          </ol>
+        </section>
+      </div>
+    </main>
+  </div>
+}
