@@ -8,6 +8,7 @@ export const ZodIngredient = z.object({
 export const ZodDietaryRestrictions = z.enum([
   'Vegetarian',
   'Vegan',
+  'Gluten',
   'Gluten_Free',
   'Dairy_Free',
   'Nut_Free',

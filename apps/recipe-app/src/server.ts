@@ -5,6 +5,7 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import httpProxy from 'http-proxy';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -12,6 +13,7 @@ const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
 const app = express();
+const apiProxy = httpProxy.createProxyServer();
 const angularApp = new AngularNodeAppEngine();
 
 /**
@@ -24,6 +26,10 @@ app.use(
     redirect: false,
   })
 );
+
+app.get("/api/*", function(req, res){ 
+  apiProxy.web(req, res, { target: 'http://localhost:3000/' });
+});
 
 /**
  * Handle all other requests by rendering the Angular application.

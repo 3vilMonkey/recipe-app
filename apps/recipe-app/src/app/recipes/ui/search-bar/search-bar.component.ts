@@ -9,16 +9,17 @@ import { FormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchBarComponent {
-  search = output<string>();
-  clear = output<void>();
+  onSearch = output<string>();
+  onClear = output<void>();
   searchTerm = '';
 
-  handleSearch() {
-    this.search.emit(this.searchTerm);
-  }
-
-  onClear() {
-    this.searchTerm = '';
-    this.clear.emit();
+  handleSearch(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    if (value && value.trim().length > 0) {
+      this.onSearch.emit(this.searchTerm);
+    } else {
+      this.searchTerm = '';
+      this.onClear.emit();
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,7 +12,7 @@ import { RecipeService } from '../../data-access/recipe.service';
 
 @Component({
   selector: 'app-recipe-details',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, NgOptimizedImage, RouterModule],
   templateUrl: './recipe-details.component.html',
   styleUrl: './recipe-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

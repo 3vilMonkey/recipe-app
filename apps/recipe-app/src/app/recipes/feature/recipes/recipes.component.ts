@@ -12,13 +12,13 @@ import { RecipeListComponent } from '../../ui/recipe-list/recipe-list.component'
 import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'app-recipes',
   imports: [RecipeListComponent, SearchBarComponent],
-  templateUrl: './landing.component.html',
-  styleUrl: './landing.component.scss',
+  templateUrl: './recipes.component.html',
+  styleUrl: './recipes.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LandingComponent {
+export class RecipesComponent {
   private destroyRef = inject(DestroyRef);
   private recipeService: RecipeService = inject(RecipeService);
   recipes: Signal<Recipe[]> = this.recipeService.recipes;

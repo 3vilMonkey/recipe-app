@@ -4,7 +4,8 @@ export const TEST_RECIPES: Recipe[] = [
   {
     id: '1',
     name: 'Classic Margherita Pizza',
-    description: 'A simple and delicious pizza topped with fresh basil, mozzarella, and tomato sauce.',
+    description:
+      'A simple and delicious pizza topped with fresh basil, mozzarella, and tomato sauce.',
     ingredients: [
       { name: 'Pizza Dough', quantity: '1 ball' },
       { name: 'Tomato Sauce', quantity: '1/2 cup' },
@@ -24,13 +25,15 @@ export const TEST_RECIPES: Recipe[] = [
     preparationTime: 15,
     cookingTime: 12,
     totalServings: 2,
-    imageUrl: 'static/images/margherita_pizza.webp',
-    imageAlt: 'A visually appealing, modern, high-quality image of a classic Margherita Pizza. The pizza is topped with melted mozzarella cheese, fresh basil leaves'
+    imageUrl: '/static/images/margherita_pizza.webp',
+    imageAlt:
+      'A visually appealing, modern, high-quality image of a classic Margherita Pizza. The pizza is topped with melted mozzarella cheese, fresh basil leaves',
   },
   {
     id: '2',
     name: 'Vegan Buddha Bowl',
-    description: 'A nutritious bowl filled with quinoa, roasted vegetables, and a tangy tahini dressing.',
+    description:
+      'A nutritious bowl filled with quinoa, roasted vegetables, and a tangy tahini dressing.',
     ingredients: [
       { name: 'Quinoa', quantity: '1 cup' },
       { name: 'Sweet Potatoes', quantity: '2 medium' },
@@ -49,13 +52,15 @@ export const TEST_RECIPES: Recipe[] = [
     preparationTime: 20,
     cookingTime: 20,
     totalServings: 2,
-    imageUrl: 'static/images/buddha_bowl.webp',
-    imageAlt: 'A beautifully arranged, modern, high-quality image of a Vegan Buddha Bowl. The bowl includes colorful fresh ingredients such as quinoa, roasted sweet potato.'
+    imageUrl: '/static/images/buddha_bowl.webp',
+    imageAlt:
+      'A beautifully arranged, modern, high-quality image of a Vegan Buddha Bowl. The bowl includes colorful fresh ingredients such as quinoa, roasted sweet potato.',
   },
   {
     id: '3',
     name: 'Spaghetti Carbonara',
-    description: 'A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.',
+    description:
+      'A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.',
     ingredients: [
       { name: 'Spaghetti', quantity: '400g' },
       { name: 'Eggs', quantity: '4 large' },
@@ -76,7 +81,151 @@ export const TEST_RECIPES: Recipe[] = [
     preparationTime: 10,
     cookingTime: 15,
     totalServings: 4,
-    imageUrl: 'static/images/spaghetti_carbonara.webp',
-    imageAlt: 'A high-quality, inviting image of a plate of classic Spaghetti Carbonara. The spaghetti is coated in a creamy sauce, topped with crispy pancetta'
+    imageUrl: '/static/images/spaghetti_carbonara.webp',
+    imageAlt:
+      'A high-quality, inviting image of a plate of classic Spaghetti Carbonara. The spaghetti is coated in a creamy sauce, topped with crispy pancetta',
+  },
+  {
+    id: '4',
+    name: 'Pancakes',
+    description: 'A classic breakfast recipe.',
+    ingredients: [
+      { name: 'Eggs', quantity: '2' },
+      { name: 'Flour', quantity: '1 cup' },
+      { name: 'Milk', quantity: '1 cup' },
+    ],
+    steps: ['Mix ingredients.', 'Cook on a griddle.'],
+    imageUrl: '/static/images/pancakes.webp',
+    imageAlt: 'A high-quality, inviting image of a stack of fluffy pancakes topped with fresh berries, a pat of butter, and a drizzle of maple syrup.',
+    dietaryRestrictions: [],
+    cookingTime: 10,
+    preparationTime: 5,
+  },
+  {
+    id: '5',
+    name: 'Vegan Salad',
+    description: 'A healthy vegan salad.',
+    ingredients: [{ name: 'Lettuce', quantity: '1 head' }],
+    steps: ['Chop and mix ingredients.'],
+    imageUrl: '/static/images/vegan-salad.webp',
+    imageAlt: 'A beautifully styled, high-quality image of a fresh vegan salad in a bowl. The salad contains a mix of leafy greens, cherry tomatoes, cucumber slices',
+    dietaryRestrictions: ['Vegan'],
+    cookingTime: 5,
+    preparationTime: 5,
+  },
+  {
+    id: '6',
+    name: 'Grilled Chicken Sandwich',
+    description:
+      'A delicious grilled chicken sandwich with fresh lettuce and tomatoes.',
+    ingredients: [
+      { name: 'Chicken breast', quantity: '1' },
+      { name: 'Lettuce', quantity: '2 leaves' },
+      { name: 'Tomato', quantity: '2 slices' },
+      { name: 'Bread', quantity: '2 slices' },
+      { name: 'Mayonnaise', quantity: '1 tbsp' },
+    ],
+    steps: [
+      'Grill the chicken breast until fully cooked.',
+      'Toast the bread slices.',
+      'Assemble the sandwich with lettuce, tomato, and mayonnaise.',
+    ],
+    imageUrl: '/static/images/grilled-chicken-sandwich.webp',
+    imageAlt: 'A beautifully arranged, high-quality image of a grilled chicken sandwich with fresh lettuce, tomato slices, and mayonnaise, served between two toasted bread.',
+    dietaryRestrictions: ['Gluten'],
+    cookingTime: 15,
+    preparationTime: 5,
+  },
+  {
+    id: '7',
+    name: 'Tomato Basil Soup',
+    description: 'A creamy and flavorful tomato soup with fresh basil.',
+    ingredients: [
+      { name: 'Tomatoes', quantity: '4 large' },
+      { name: 'Basil leaves', quantity: '10' },
+      { name: 'Cream', quantity: '1/2 cup' },
+      { name: 'Garlic', quantity: '2 cloves' },
+      { name: 'Olive oil', quantity: '1 tbsp' },
+    ],
+    steps: [
+      'Sauté garlic in olive oil until fragrant.',
+      'Add chopped tomatoes and cook until soft.',
+      'Blend the mixture and strain to remove seeds and skin.',
+      'Add cream and fresh basil, then simmer for 5 minutes.',
+    ],
+    imageUrl: '/static/images/tomato-basil-soup.webp',
+    imageAlt: 'A beautifully arranged, high-quality image of a bowl of creamy tomato basil soup. The soup is vibrant red-orange with a swirl of cream on top.',
+    dietaryRestrictions: ['Vegetarian', 'Gluten_Free'],
+    cookingTime: 20,
+    preparationTime: 10,
+  },
+  {
+    id: '8',
+    name: 'Beef Stir Fry',
+    description: 'A quick and easy beef stir fry with vegetables.',
+    ingredients: [
+      { name: 'Beef strips', quantity: '300g' },
+      { name: 'Bell peppers', quantity: '2' },
+      { name: 'Soy sauce', quantity: '3 tbsp' },
+      { name: 'Garlic', quantity: '2 cloves' },
+      { name: 'Vegetable oil', quantity: '1 tbsp' },
+    ],
+    steps: [
+      'Heat oil in a wok and sauté garlic.',
+      'Add beef strips and cook until browned.',
+      'Add sliced bell peppers and stir fry for 5 minutes.',
+      'Add soy sauce and cook for another 2 minutes.',
+    ],
+    imageUrl: '/static/images/beef-stir-fry.webp',
+    imageAlt: 'A high-quality, vibrant image of a sizzling beef stir fry served on a black plate. The dish features tender beef strips with colorful bell peppers',
+    dietaryRestrictions: ['Dairy_Free'],
+    cookingTime: 15,
+    preparationTime: 5,
+  },
+  {
+    id: '9',
+    name: 'Berry Smoothie Bowl',
+    description:
+      'A refreshing smoothie bowl topped with fresh berries and granola.',
+    ingredients: [
+      { name: 'Frozen mixed berries', quantity: '1 cup' },
+      { name: 'Banana', quantity: '1' },
+      { name: 'Almond milk', quantity: '1/2 cup' },
+      { name: 'Granola', quantity: '1/4 cup' },
+      { name: 'Chia seeds', quantity: '1 tbsp' },
+    ],
+    steps: [
+      'Blend frozen berries, banana, and almond milk until smooth.',
+      'Pour into a bowl and top with granola, chia seeds, and fresh berries.',
+    ],
+    imageUrl: '/static/images/berry-smoothie-bowl.webp',
+    imageAlt: 'A beautifully styled, high-quality image of a vibrant berry smoothie bowl. The bowl contains a thick smoothie made from frozen mixed berries and banan.',
+    dietaryRestrictions: ['Vegan', 'Gluten_Free'],
+    cookingTime: 5,
+    preparationTime: 5,
+  },
+  {
+    id: '10',
+    name: 'Stuffed Bell Peppers',
+    description:
+      'Bell peppers stuffed with a flavorful rice and vegetable mixture.',
+    ingredients: [
+      { name: 'Bell peppers', quantity: '4' },
+      { name: 'Rice', quantity: '1 cup' },
+      { name: 'Onion', quantity: '1' },
+      { name: 'Tomato paste', quantity: '2 tbsp' },
+      { name: 'Cheese', quantity: '1/2 cup' },
+    ],
+    steps: [
+      'Cut the tops off the bell peppers and remove seeds.',
+      'Cook rice and mix with sautéed onions, tomato paste, and seasoning.',
+      'Stuff the mixture into the bell peppers and top with cheese.',
+      'Bake at 180°C (350°F) for 25 minutes.',
+    ],
+    imageUrl: '/static/images/stuffed-bell-peppers.webp',
+    imageAlt: 'A high-quality, vibrant image of stuffed bell peppers served on a white plate. The bell peppers are filled with a colorful rice and vegetable mixture.',
+    dietaryRestrictions: ['Vegetarian'],
+    cookingTime: 25,
+    preparationTime: 15,
   },
 ];
