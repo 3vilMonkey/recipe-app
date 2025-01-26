@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express from 'express';
+import imagesController from './controllers/images.controller';
 import recipesController from './controllers/recipes.controller';
 
 export class AppModule {
@@ -17,16 +18,12 @@ export class AppModule {
 
   private configureRoutes(): void {
     this.app.use('/api/recipes', recipesController);
+    this.app.use('/static/images', imagesController);
   }
 
   public listen(port: number): void {
     this.app.listen(port, () => {
       console.log(`Recipes backend is running at http://localhost:${port}`);
     });
-  }
-
-  public serveStatic(url: string, staticPath: string): void {
-    // Serve static assets from the assets/images directory
-    this.app.use(url, express.static(staticPath));
   }
 }

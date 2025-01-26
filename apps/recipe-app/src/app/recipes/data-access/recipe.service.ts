@@ -2,7 +2,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Recipe } from './recipe.model';
 
 @Injectable({ providedIn: 'root' })
@@ -16,14 +16,14 @@ export class RecipeService {
   }
 
   getRecipes(): Observable<Recipe[]> {
-    return this.http
-      .get<Recipe[]>(this.apiUrl)
-      .pipe(tap((recipes) => this.recipes.set(recipes)));
+    return this.http.get<Recipe[]>(this.apiUrl).pipe(tap((recipes) => this.recipes.set(recipes)));
   }
 
-  searchRecipes(prompt: string): Observable<Recipe[]> {
-    return this.http
-      .post<Recipe[]>(`${this.apiUrl}/search`, { prompt })
-      .pipe(tap((recipes) => this.recipes.set(recipes)));
+  searchRecipes(prompt: string): Recipe[] {
+    return this.recipes().filter((recipe) => recipe.name.toLowerCase().includes(prompt.toLowerCase()));
+  }
+
+  getRecipeIds(): Observable<string[]> {
+    return this.getRecipes().pipe(map((recipes): string[] => recipes.map((recipe) => recipe.id)));
   }
 }

@@ -1,6 +1,6 @@
-<div class="min-h-screen">
+<div class="min-h-screen bg-base-300">
   <main class="flex flex-col flex-1 p-4 gap-4">
-    <app-search-bar (search)="handleSearch($event)" (clear)="clearSearch()" />
+    <app-search-bar (onSearch)="handleSearch($event)" (onClear)="clearSearch()" />
     <app-recipe-list class="flex-1" [recipes]="recipes()" />
   </main>
 </div>

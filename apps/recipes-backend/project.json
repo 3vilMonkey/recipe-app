@@ -13,14 +13,14 @@
         "platform": "node",
         "outputPath": "dist/apps/recipes-backend",
         "format": ["cjs"],
-        "bundle": false,
+        "bundle": true,
         "main": "apps/recipes-backend/src/main.ts",
         "tsConfig": "apps/recipes-backend/tsconfig.app.json",
         "assets": [
           {
             "glob": "**/*",
             "input": "apps/recipes-backend/src/assets",
-            "output": "apps/recipes-backend/src/assets",
+            "output": "/assets",
             "ignore": [".gitkeep"]
           }
         ],

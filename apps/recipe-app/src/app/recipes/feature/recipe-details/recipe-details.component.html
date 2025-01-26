@@ -1,17 +1,30 @@
 @if (recipe$ | async; as recipe) {
   <div class="min-h-screen p-4">
     <header class="p-4">
-      <button class="text-blue-500" routerLink="/recipes">
+      <button class="text-base-content" routerLink="/recipes">
         &larr; Back to Recipes
       </button>
     </header>
 
     <main class="flex flex-row gap-4">
-      <img
-        [src]="recipe?.imageUrl"
-        [alt]="recipe?.imageAlt"
-        class="w-3/12 rounded-md shadow-md"
-      />
+      @defer (on viewport; prefetch on immediate) {
+        @if (recipe?.imageUrl) {
+          <div class="w-3/12 h-3/12 relative">
+            <img
+              [ngSrc]="recipe?.imageUrl!"
+              [alt]="recipe?.imageAlt"
+              height="400"
+              width="400"
+              ngSrcset="100w, 200w, 300w, 400w"
+              sizes="(max-width: 600px) 200px, 400px"
+              priority
+              class="rounded-md shadow-md"
+            />
+          </div>
+        }
+      } @placeholder {
+        <div class="skeleton w-3/12 h-3/12"></div>
+      }
       <div class="flex-1">
         <h1 class="text-2xl font-bold">{{ recipe?.name }}</h1>
         <p class="text-sm">

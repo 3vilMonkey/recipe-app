@@ -1,14 +1,45 @@
 <div
-  class="p-4 rounded-md shadow-md transition hover:shadow-lg"
+  class="card h-full w-full bg-base-100 shadow-xl"
+  [class.grayscale]="!hydrated()"
   [routerLink]="['/recipe/', recipe().id]"
 >
-  <img
-    [src]="recipe().imageUrl"
-    [alt]="recipe().imageAlt"
-    class="w-full h-40 object-cover rounded-md"
-  />
-  <h3 class="mt-2 text-lg font-bold">{{ recipe().name }}</h3>
-  <p class="text-sm">
-    {{ recipe().description }}
-  </p>
+  <figure class="relative min-h-32">
+    @defer (on viewport; prefetch on immediate) {
+      @if (recipe().imageUrl) {
+        <img
+          [ngSrc]="recipe().imageUrl!"
+          [alt]="recipe().imageAlt"
+          fill
+          priority
+          ngSrcset="100w, 200w, 300w"
+          sizes="(max-width: 600px) 200px, 300px"
+          class="h-48 w-full object-cover"
+        />
+      }
+    } @placeholder {
+      <div class="skeleton h-full w-full"></div>
+    }
+    <div
+      class="absolute top-2 left-2 bg-black/50 text-white text-s font-semibold py-1 px-2 rounded"
+    >
+      ⏱ {{ recipe().cookingTime }} mins
+    </div>
+    <div class="absolute top-2 right-2 space-y-1 flex flex-col items-end">
+      @for (badge of recipe().dietaryRestrictions; track badge) {
+        <div
+          class="bg-black/50 text-white text-s font-semibold py-1 px-2 rounded"
+        >
+          {{ badge }}
+        </div>
+      }
+    </div>
+  </figure>
+  <div class="card-body flex flex-col justify-between p-4">
+    <h2 class="card-title text-lg font-semibold text-base-content">
+      {{ recipe().name }}
+    </h2>
+    <p class="text-sm text-base-content line-clamp-3">
+      {{ recipe().description }}
+    </p>
+  </div>
 </div>
