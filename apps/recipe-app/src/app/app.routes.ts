@@ -4,8 +4,8 @@ export const appRoutes: Route[] = [
   {
     path: 'recipes',
     loadComponent: () =>
-      import('./recipes/feature/landing/landing.component').then(
-        (m) => m.LandingComponent
+      import('./recipes/feature/recipes/recipes.component').then(
+        (m) => m.RecipesComponent
       ),
   },
   {
