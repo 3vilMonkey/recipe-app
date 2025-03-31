@@ -7,7 +7,15 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "src",
+    "paths": {
+      "@core/*": ["app/core/*"],
+      "@meal-planner/*": ["app/meal-planner/*"],
+      "@recipes/*": ["app/recipes/*"],
+      "@shared/*": ["app/shared/*"],
+      "@assets/*": ["assets/*"]
+    }
   },
   "files": [],
   "include": [],

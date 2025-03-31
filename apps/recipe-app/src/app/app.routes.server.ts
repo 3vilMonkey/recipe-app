@@ -5,6 +5,10 @@ import { RecipeService } from './recipes/data-access/recipe.service';
 
 export const serverRoutes: ServerRoute[] = [
   {
+    path: 'meal-planner',
+    renderMode: RenderMode.Prerender,
+  },
+  {
     path: 'recipes',
     renderMode: RenderMode.Prerender,
   },
