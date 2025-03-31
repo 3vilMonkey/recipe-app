@@ -20,6 +20,12 @@ To create a production bundle:
 npx nx build recipe-app
 ```
 
+To create a production bundle without caching:
+
+```sh
+npx nx build recipe-app --skip-nx-cache
+```
+
 To see all available targets to run for a project, run:
 
 ```sh
