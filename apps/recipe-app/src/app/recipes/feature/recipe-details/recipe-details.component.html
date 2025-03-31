@@ -1,4 +1,4 @@
-@if (recipe$ | async; as recipe) {
+@if (recipe()) {
   <div class="min-h-screen p-4">
     <header class="p-4">
       <button class="text-base-content" routerLink="/recipes">
@@ -8,11 +8,11 @@
 
     <main class="flex flex-row gap-4">
       @defer (on viewport; prefetch on immediate) {
-        @if (recipe?.imageUrl) {
+        @if (recipe()?.imageUrl) {
           <div class="w-3/12 h-3/12 relative">
             <img
-              [ngSrc]="recipe?.imageUrl!"
-              [alt]="recipe?.imageAlt"
+              [ngSrc]="recipe()?.imageUrl!"
+              [alt]="recipe()?.imageAlt"
               height="400"
               width="400"
               ngSrcset="100w, 200w, 300w, 400w"
@@ -26,15 +26,15 @@
         <div class="skeleton w-3/12 h-3/12"></div>
       }
       <div class="flex-1">
-        <h1 class="text-2xl font-bold">{{ recipe?.name }}</h1>
+        <h1 class="text-2xl font-bold">{{ recipe()?.name }}</h1>
         <p class="text-sm">
-          {{ recipe?.description }}
+          {{ recipe()?.description }}
         </p>
 
         <section class="mt-6">
           <h2 class="text-xl font-bold">Ingredients</h2>
           <ul class="list-disc list-inside">
-            <li *ngFor="let ingredient of recipe?.ingredients">
+            <li *ngFor="let ingredient of recipe()?.ingredients">
               {{ ingredient.quantity }} - {{ ingredient.name }}
             </li>
           </ul>
@@ -43,7 +43,7 @@
         <section class="mt-6">
           <h2 class="text-xl font-bold">Instructions</h2>
           <ol class="list-decimal list-inside">
-            <li *ngFor="let step of recipe?.steps">{{ step }}</li>
+            <li *ngFor="let step of recipe()?.steps">{{ step }}</li>
           </ol>
         </section>
       </div>

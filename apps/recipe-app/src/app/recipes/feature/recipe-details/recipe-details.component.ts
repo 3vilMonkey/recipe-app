@@ -1,14 +1,7 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  Input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Recipe } from '../../data-access/recipe.model';
-import { RecipeService } from '../../data-access/recipe.service';
+import { RecipeDetailStore } from '@recipes/data-access/recipe-detail.store';
 
 @Component({
   selector: 'app-recipe-details',
@@ -18,13 +11,13 @@ import { RecipeService } from '../../data-access/recipe.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipeDetailsComponent {
-  private recipeService: RecipeService = inject(RecipeService);
-  @Input('recipeId') id?: string;
-  recipe$!: Observable<Recipe>;
+  #recipeStore: RecipeDetailStore = inject(RecipeDetailStore);
+  recipeId = input.required<string>();
+  recipe = this.#recipeStore.recipe;
 
-  ngOnInit(): void {
-    if (this.id) {
-      this.recipe$ = this.recipeService.getRecipeById(this.id);
-    }
+  constructor() {
+    effect(() => {
+      this.#recipeStore.load(this.recipeId());
+    });
   }
 }

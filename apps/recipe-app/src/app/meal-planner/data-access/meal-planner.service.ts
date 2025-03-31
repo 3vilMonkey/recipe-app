@@ -12,13 +12,13 @@ export class MealPlannerService {
       id: crypto.randomUUID(),
       weekStartDate: startDate,
       meals: [
-        { day: 'Monday', recipeId: null },
-        { day: 'Tuesday', recipeId: null },
-        { day: 'Wednesday', recipeId: null },
-        { day: 'Thursday', recipeId: null },
-        { day: 'Friday', recipeId: null },
-        { day: 'Saturday', recipeId: null },
-        { day: 'Sunday', recipeId: null },
+        { day: 'Monday', recipeId: '' },
+        { day: 'Tuesday', recipeId: '' },
+        { day: 'Wednesday', recipeId: '' },
+        { day: 'Thursday', recipeId: '' },
+        { day: 'Friday', recipeId: '' },
+        { day: 'Saturday', recipeId: '' },
+        { day: 'Sunday', recipeId: '' },
       ],
     };
     this.mealPlan.set(newMealPlan);

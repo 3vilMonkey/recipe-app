@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, WritableSignal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Recipe } from '../../data-access/recipe.model';
-import { RecipeService } from '../../data-access/recipe.service';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RecipeStore } from '@recipes/data-access/recipe.store';
 import { RecipeListComponent } from '../../ui/recipe-list/recipe-list.component';
 import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
 
@@ -13,24 +11,14 @@ import { SearchBarComponent } from '../../ui/search-bar/search-bar.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecipesComponent {
-  private destroyRef = inject(DestroyRef);
-  private recipeService: RecipeService = inject(RecipeService);
-  recipes: WritableSignal<Recipe[]> = this.recipeService.recipes;
-
-  ngOnInit(): void {
-    this.getRecipes();
-  }
+  #recipeStore = inject(RecipeStore);
+  recipes = this.#recipeStore.recipes;
 
   handleSearch(searchTerm: string) {
-    const filteredRecipe = this.recipeService.searchRecipes(searchTerm);
-    this.recipes.set(filteredRecipe);
-  }
-
-  getRecipes(): void {
-    this.recipeService.getRecipes().pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
+    this.#recipeStore.searchRecipes(searchTerm);
   }
 
   clearSearch() {
-    this.getRecipes();
+    this.#recipeStore.searchRecipes('');
   }
 }

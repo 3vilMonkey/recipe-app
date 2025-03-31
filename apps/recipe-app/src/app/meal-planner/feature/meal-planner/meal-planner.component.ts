@@ -1,25 +1,25 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MealPlannerService } from '@meal-planner/data-access/meal-planner.service';
-import { RecipeService } from '@recipes/data-access/recipe.service';
+import { RecipeStore } from '@recipes/data-access/recipe.store';
 
 @Component({
   selector: 'app-meal-planner',
-  imports: [CommonModule],
+  imports: [FormsModule],
   templateUrl: './meal-planner.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MealPlannerComponent {
-  private mealPlannerService = inject(MealPlannerService);
-  private recipeService = inject(RecipeService);
-  mealPlan = this.mealPlannerService.mealPlan;
-  recipes = this.recipeService.recipes;
+  #mealPlannerService = inject(MealPlannerService);
+  #recipeStore = inject(RecipeStore);
+  mealPlan = this.#mealPlannerService.mealPlan;
+  recipes = this.#recipeStore.recipes;
 
   createMealPlan() {
-    this.mealPlannerService.createMealPlan(new Date());
+    this.#mealPlannerService.createMealPlan(new Date());
   }
 
   addRecipeToDay(day: string, recipeId: string) {
-    this.mealPlannerService.addRecipeToDay(day, recipeId);
+    this.#mealPlannerService.addRecipeToDay(day, recipeId);
   }
 }

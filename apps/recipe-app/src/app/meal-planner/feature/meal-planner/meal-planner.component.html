@@ -10,10 +10,10 @@
           <div class="p-4 border rounded bg-base-100">
             <h2 class="font-semibold">{{ meal.day }}</h2>
             <select
-              #recipe
-              [value]="meal.recipeId"
+              #recipeSelect
+              [ngModel]="meal.recipeId"
               class="select select-bordered w-full mt-2"
-              (change)="addRecipeToDay(meal.day, recipe.value)"
+              (change)="addRecipeToDay(meal.day, recipeSelect.value)"
             >
               <option value="">Select a Recipe</option>
               @for (recipe of recipes(); track recipe.id) {
