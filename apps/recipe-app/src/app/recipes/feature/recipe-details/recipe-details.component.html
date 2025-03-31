@@ -34,16 +34,20 @@
         <section class="mt-6">
           <h2 class="text-xl font-bold">Ingredients</h2>
           <ul class="list-disc list-inside">
-            <li *ngFor="let ingredient of recipe()?.ingredients">
-              {{ ingredient.quantity }} - {{ ingredient.name }}
-            </li>
+            @for (ingredient of recipe()?.ingredients; track ingredient.name) {
+              <li>
+                {{ ingredient.quantity }} {{ ingredient.unit }} - {{ ingredient.name }}
+              </li>
+            }
           </ul>
         </section>
 
         <section class="mt-6">
           <h2 class="text-xl font-bold">Instructions</h2>
           <ol class="list-decimal list-inside">
-            <li *ngFor="let step of recipe()?.steps">{{ step }}</li>
+            @for (step of recipe()?.steps; track $index) {
+              <li>{{ step }}</li>
+            }
           </ol>
         </section>
       </div>

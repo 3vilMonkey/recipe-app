@@ -14,7 +14,8 @@ export interface Recipe {
 
 export interface Ingredient {
   name: string; // Name of the ingredient
-  quantity: string; // Quantity and unit (e.g., '2 cups')
+  quantity: number; // Quantity (e.g., '2')
+  unit?: string; // Unit (e.g., 'cups')
 }
 
 export enum DietaryRestrictions {
