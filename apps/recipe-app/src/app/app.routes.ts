@@ -16,6 +16,11 @@ export const appRoutes: Route[] = [
       import('./recipes/feature/recipe-details/recipe-details.component').then((m) => m.RecipeDetailsComponent),
   },
   {
+    path: 'shopping-list',
+    loadComponent: () =>
+      import('./meal-planner/feature/shopping-list/shopping-list.component').then((m) => m.ShoppingListComponent),
+  },
+  {
     path: '*',
     redirectTo: 'recipes',
   },

@@ -2,7 +2,8 @@ import { z } from 'zod';
 
 export const ZodIngredient = z.object({
   name: z.string().describe('Name of the ingredient'),
-  quantity: z.string().describe('Quantity and unit (e.g., 2 cups)'),
+  quantity: z.number().describe('Quantity (e.g., 2)'),
+  unit: z.string().describe('Unit (e.g., cups)'),
 });
 
 export const ZodDietaryRestrictions = z.enum([

@@ -9,6 +9,10 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
   },
   {
+    path: 'shopping-list',
+    renderMode: RenderMode.Prerender,
+  },
+  {
     path: 'recipes',
     renderMode: RenderMode.Prerender,
   },
